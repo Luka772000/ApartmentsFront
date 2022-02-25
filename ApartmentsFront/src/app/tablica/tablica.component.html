@@ -1,0 +1,25 @@
+
+<div class="container col-xl-10 col-xxl-8 px-4 py-5" >
+      <table class="table" >
+        <thead>
+        <tr>
+          
+          <th scope="col">ID</th>
+          <th scope="col">OPIS STANA</th>
+          <th scope="col">BROJ SOBA</th>
+          <th scope="col">MJESECNA CIJENA</th>
+          <th scope="col">ADRESA</th>
+        </tr>
+        </thead>
+        <tbody>
+       
+        <tr *ngFor="let pd of service.list1">
+            <td  >{{ pd.id | number}}</td>
+            <td  >{{ pd.apartmentDescription  }}</td>
+            <td  >{{ pd.numberOfRooms | number }}</td>
+            <td  >{{ pd.monthlyPrice | number }}</td>
+            <td  >{{ pd.adress }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

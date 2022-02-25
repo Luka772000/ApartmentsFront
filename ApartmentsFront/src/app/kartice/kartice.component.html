@@ -1,0 +1,64 @@
+<div class="container col-xl-10 col-xxl-8 px-4 py-5">
+  <div class="col-md-10 mx-auto col-lg-10 slova" *ngIf="accountService.currentUser$ | async">
+
+
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <mat-grid-tile>
+        <p class="col-lg-10 fs-4">Ako zelite iznajmiti stan po povoljnoj cijeni i to od sigurnih i pouzdanih osoba prijavite se na nasu stranicu. Kod nas mozete ocekivati sve najbolje ponude i cijene.</p></mat-grid-tile>
+      <mat-grid-tile><img class='slika' src="assets/3.jpg"></mat-grid-tile>
+      <mat-grid-tile><img class='slika2' src="assets/pngwing.com.png"> 
+        <img class='slika2' src="assets/pngwing.com (1).png"> <br>
+        </mat-grid-tile>
+      <mat-grid-tile><p class="col-lg-10 fs-4">Za kreiranje ovog projekta smo koristili .Net core za backend i Angular za Frontend</p></mat-grid-tile>
+    </mat-grid-list>
+
+
+
+
+        
+      </div>
+      
+    <div class="row align-items-center g-lg-5 py-5">
+      
+      <div class="col-md-10 mx-auto col-lg-5" *ngIf="!registerMode">
+        <form class="p-4 p-md-5 border rounded-3 bg-light"#loginForm="ngForm"  *ngIf="(accountService.currentUser$ | async) === null"  class="form-inline mt-2 mt-md-0" (ngSubmit)="login()">
+          <div class="form-floating mb-3">
+            <input name="username" [(ngModel)]="model.username" class="form-control mr-sm-2" type="text" placeholder="Username">
+            <label for="floatingInput">Username</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input input name="password" [(ngModel)]="model.password"class="form-control mr-sm-2" type="password" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+          <div class="checkbox mb-3 slova">
+            <label class="slova">
+              <input  type="checkbox" value="remember-me"> Remember me
+            </label>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Log in </button>
+            <h3 class="slova">OR</h3> 
+          <button (click)="registerToggle()"class="btn btn-primary btn-lg mr-2 w-100">Register</button>
+          <hr class="my-4">
+          <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
+        </form>
+
+
+        
+
+        
+      </div>
+
+      
+
+    </div>
+  
+  <div *ngIf="registerMode" class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <app-register (cancelRegister)="cancelRegisterMode($event)" ></app-register>
+      </div> 
+    </div>
+  </div>
+  
+</div>
+
